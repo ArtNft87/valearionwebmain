@@ -191,6 +191,84 @@ a{color:inherit;text-decoration:none}
 }
 @media(max-width:520px){.stat-grid{grid-template-columns:1fr}.flow4{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pulse-ring{display:none}.pulse-tick path{animation:none;stroke-dashoffset:0}*{transition:none!important}}
+
+/* ==================== ELEVATION LAYER ==================== */
+:root{
+  --paper:#F4F5F2;--surface:#FFFFFF;--ink:#0E1217;--ink-soft:#333B44;--muted:#697079;
+  --line:#D8DDD8;--line-soft:#E8ECE7;--signal:#2233ED;--signal-deep:#1522C4;--signal-wash:#ECEEFE;
+  --r:16px;
+  --sh-sm:0 1px 2px rgba(14,18,23,.05);
+  --sh:0 1px 2px rgba(14,18,23,.04),0 10px 22px -12px rgba(14,18,23,.15);
+  --sh-lg:0 1px 2px rgba(14,18,23,.05),0 26px 52px -26px rgba(14,18,23,.22);
+  --sh-hi:inset 0 1px 0 rgba(255,255,255,.7);
+  --ink-grad:linear-gradient(165deg,#161B22 0%,#0B0E13 80%);
+  --engrave:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 1px,transparent 1px 8px);
+}
+body{background:linear-gradient(180deg,#F7F8F5 0%,var(--paper) 55%,#EDEFEA 100%);background-attachment:fixed;font-feature-settings:"ss01","liga"}
+.wrap{padding:0 32px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.55}
+
+.nav{border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s,background .25s}
+.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(14,18,23,.03),0 14px 26px -22px rgba(14,18,23,.3)}
+.brand{font-size:22px}
+.nav-links a:not(.nav-cta){position:relative}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1.5px;background:var(--signal);transition:right .25s ease}
+.nav-links a:not(.nav-cta):hover::after,.nav-links a[aria-current="page"]::after{right:0}
+.nav-cta{box-shadow:var(--sh-sm)}
+
+.btn-primary{background:linear-gradient(180deg,#2C3CF3,#1B29D4);border:1px solid rgba(10,16,120,.28);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 8px 20px -8px rgba(34,51,237,.55)}
+.btn-primary:hover{background:linear-gradient(180deg,#2333E6,#1521BE);box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 13px 28px -8px rgba(34,51,237,.6);transform:translateY(-1.5px)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:4px}
+
+.section{padding:92px 0}
+main>section:nth-of-type(even){background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)}
+.section h2{letter-spacing:-.02em}
+
+.hero{padding:96px 0 84px;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{letter-spacing:-.028em}
+.guilloche{position:absolute;top:50%;right:-5%;width:660px;height:660px;transform:translateY(-50%);opacity:.13;z-index:0;pointer-events:none;-webkit-mask:radial-gradient(closest-side,#000 42%,transparent 78%);mask:radial-gradient(closest-side,#000 42%,transparent 78%)}
+.guilloche-svg{width:100%;height:100%;display:block}
+.guilloche-svg ellipse{fill:none;stroke:var(--signal);stroke-width:.6}
+
+.pulse-card{background:linear-gradient(180deg,#FFFFFF,#FBFCFB);border-color:var(--line);box-shadow:var(--sh-lg),var(--sh-hi)}
+.pulse-node{background:radial-gradient(circle at 50% 36%,#F3F5FF,#E7EAFE);box-shadow:0 6px 16px -8px rgba(34,51,237,.5)}
+
+.stat-grid{border-color:var(--line);border-radius:var(--r);box-shadow:var(--sh-lg),var(--sh-hi)}
+.stat{position:relative}
+.stat::before{content:"";position:absolute;top:0;left:26px;width:20px;height:2px;background:var(--signal);opacity:.85}
+.stat-num{font-size:34px;letter-spacing:-.03em;font-feature-settings:"tnum"}
+
+.card,.tblock,.step,.col,.price,.member,.pain,.stance,.contact-side,.pulse-card{border-radius:var(--r)}
+.card,.tblock,.step,.price,.member,.pain{box-shadow:var(--sh),var(--sh-hi);transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,border-color .22s}
+.card{position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--signal),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg),var(--sh-hi)}
+.card:hover::before{transform:scaleX(1)}
+.tblock:hover,.step:hover,.price:hover{transform:translateY(-2px);box-shadow:var(--sh-lg),var(--sh-hi)}
+.col.is-v{box-shadow:0 1px 2px rgba(14,18,23,.05),0 30px 58px -28px rgba(34,51,237,.42),var(--sh-hi)}
+.price-num{letter-spacing:-.03em;font-feature-settings:"tnum"}
+
+.note{background:var(--ink-grad);border:1px solid rgba(255,255,255,.06);box-shadow:var(--sh-lg);position:relative;overflow:hidden}
+.note::before{content:"";position:absolute;inset:0;background:var(--engrave);pointer-events:none}
+.note::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(255,255,255,.14)}
+.note>*{position:relative}
+.footer{background:var(--ink-grad);position:relative;overflow:hidden}
+.footer::before{content:"";position:absolute;inset:0;background:var(--engrave);pointer-events:none}
+.footer .wrap{position:relative}
+.contact-side{background:var(--ink-grad);position:relative;overflow:hidden;box-shadow:var(--sh-lg)}
+.contact-side::before{content:"";position:absolute;inset:0;background:var(--engrave);pointer-events:none}
+.contact-side>*{position:relative}
+.member .av{background:radial-gradient(circle at 50% 38%,#EEF0FE,#E2E6FD);box-shadow:0 4px 10px -6px rgba(34,51,237,.5),var(--sh-hi)}
+.field input,.field textarea,.field select{box-shadow:var(--sh-sm)}
+
+[data-rv]{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-rv].rv-in{opacity:1;transform:none}
+
+@media(max-width:880px){.wrap{padding:0 24px}.section{padding:66px 0}.hero{padding:74px 0 62px}.guilloche{right:-32%;width:460px;height:460px;opacity:.09}}
+@media(prefers-reduced-motion:reduce){[data-rv]{opacity:1!important;transform:none!important}}
 </style></head><body><header class="nav"><div class="wrap nav-inner">
 <a href="index.html" class="brand">Valear<span>i</span>on</a>
 <button class="nav-toggle" aria-label="Menu" id="navToggle"><span></span><span></span><span></span></button>
@@ -202,7 +280,7 @@ a{color:inherit;text-decoration:none}
 <a href="company.html">Company</a>
 <a href="contact.html" class="nav-cta">Talk to us</a>
 </nav></div></header><main id="top">
-<section class="hero"><div class="wrap hero-grid">
+<section class="hero"><div class="guilloche" aria-hidden="true"><svg class="guilloche-svg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="260" cy="260" rx="248.0" ry="248.0" transform="rotate(0.00 260 260)"/><ellipse cx="260" cy="260" rx="246.0" ry="244.3" transform="rotate(7.83 260 260)"/><ellipse cx="260" cy="260" rx="244.0" ry="240.6" transform="rotate(15.66 260 260)"/><ellipse cx="260" cy="260" rx="242.0" ry="236.9" transform="rotate(23.49 260 260)"/><ellipse cx="260" cy="260" rx="240.0" ry="233.2" transform="rotate(31.32 260 260)"/><ellipse cx="260" cy="260" rx="238.0" ry="229.5" transform="rotate(39.15 260 260)"/><ellipse cx="260" cy="260" rx="236.0" ry="225.8" transform="rotate(46.98 260 260)"/><ellipse cx="260" cy="260" rx="234.0" ry="222.1" transform="rotate(54.81 260 260)"/><ellipse cx="260" cy="260" rx="232.0" ry="218.4" transform="rotate(62.64 260 260)"/><ellipse cx="260" cy="260" rx="230.0" ry="214.7" transform="rotate(70.47 260 260)"/><ellipse cx="260" cy="260" rx="228.0" ry="211.0" transform="rotate(78.30 260 260)"/><ellipse cx="260" cy="260" rx="226.0" ry="207.3" transform="rotate(86.13 260 260)"/><ellipse cx="260" cy="260" rx="224.0" ry="203.6" transform="rotate(93.96 260 260)"/><ellipse cx="260" cy="260" rx="222.0" ry="199.9" transform="rotate(101.79 260 260)"/><ellipse cx="260" cy="260" rx="220.0" ry="196.2" transform="rotate(109.62 260 260)"/><ellipse cx="260" cy="260" rx="218.0" ry="192.5" transform="rotate(117.45 260 260)"/><ellipse cx="260" cy="260" rx="216.0" ry="188.8" transform="rotate(125.28 260 260)"/><ellipse cx="260" cy="260" rx="214.0" ry="185.1" transform="rotate(133.11 260 260)"/><ellipse cx="260" cy="260" rx="212.0" ry="181.4" transform="rotate(140.94 260 260)"/><ellipse cx="260" cy="260" rx="210.0" ry="177.7" transform="rotate(148.77 260 260)"/><ellipse cx="260" cy="260" rx="208.0" ry="174.0" transform="rotate(156.60 260 260)"/><ellipse cx="260" cy="260" rx="206.0" ry="170.3" transform="rotate(164.43 260 260)"/><ellipse cx="260" cy="260" rx="204.0" ry="166.6" transform="rotate(172.26 260 260)"/><ellipse cx="260" cy="260" rx="202.0" ry="162.9" transform="rotate(180.09 260 260)"/><ellipse cx="260" cy="260" rx="200.0" ry="159.2" transform="rotate(187.92 260 260)"/><ellipse cx="260" cy="260" rx="198.0" ry="155.5" transform="rotate(195.75 260 260)"/><ellipse cx="260" cy="260" rx="196.0" ry="151.8" transform="rotate(203.58 260 260)"/><ellipse cx="260" cy="260" rx="194.0" ry="148.1" transform="rotate(211.41 260 260)"/><ellipse cx="260" cy="260" rx="192.0" ry="144.4" transform="rotate(219.24 260 260)"/><ellipse cx="260" cy="260" rx="190.0" ry="140.7" transform="rotate(227.07 260 260)"/><ellipse cx="260" cy="260" rx="188.0" ry="137.0" transform="rotate(234.90 260 260)"/><ellipse cx="260" cy="260" rx="186.0" ry="133.3" transform="rotate(242.73 260 260)"/><ellipse cx="260" cy="260" rx="184.0" ry="129.6" transform="rotate(250.56 260 260)"/><ellipse cx="260" cy="260" rx="182.0" ry="125.9" transform="rotate(258.39 260 260)"/><ellipse cx="260" cy="260" rx="180.0" ry="122.2" transform="rotate(266.22 260 260)"/><ellipse cx="260" cy="260" rx="178.0" ry="118.5" transform="rotate(274.05 260 260)"/><ellipse cx="260" cy="260" rx="176.0" ry="114.8" transform="rotate(281.88 260 260)"/><ellipse cx="260" cy="260" rx="174.0" ry="111.1" transform="rotate(289.71 260 260)"/><ellipse cx="260" cy="260" rx="172.0" ry="107.4" transform="rotate(297.54 260 260)"/><ellipse cx="260" cy="260" rx="170.0" ry="103.7" transform="rotate(305.37 260 260)"/><ellipse cx="260" cy="260" rx="168.0" ry="100.0" transform="rotate(313.20 260 260)"/><ellipse cx="260" cy="260" rx="166.0" ry="96.3" transform="rotate(321.03 260 260)"/><ellipse cx="260" cy="260" rx="164.0" ry="92.6" transform="rotate(328.86 260 260)"/><ellipse cx="260" cy="260" rx="162.0" ry="88.9" transform="rotate(336.69 260 260)"/><ellipse cx="260" cy="260" rx="160.0" ry="85.2" transform="rotate(344.52 260 260)"/><ellipse cx="260" cy="260" rx="158.0" ry="81.5" transform="rotate(352.35 260 260)"/></svg></div><div class="wrap hero-grid">
 <div>
 <span class="eyebrow">Identity infrastructure for regulated platforms</span>
 <h1>The regulator asks you one question. Who decided, and can you prove it?</h1>
@@ -279,4 +357,12 @@ a{color:inherit;text-decoration:none}
 <a href="solutions.html">Solutions</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="ownlyme.html">OwnlyMe</a><a href="company.html">Company</a><a href="contact.html">Contact</a></nav>
 </div>
 <div class="footer-bottom"><span>Infrastructure, not a decision maker. Operators configure, decide, and stay accountable.</span><span>Last updated July 2026</span></div>
-</div></footer><script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open')})}})();</script><script>(function(){var el=document.getElementById('pulseCaption');if(!el)return;var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(r){el.innerHTML='<b>you decide</b>';return;}var s=['pulse sent','checked against your rules','verified','<b>you decide</b>'],i=0;setInterval(function(){i=(i+1)%s.length;el.innerHTML=s[i];},900);})();</script></body></html>
+</div></footer><script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open')})}
+var nav=document.querySelector('.nav');if(nav){var s=function(){nav.classList.toggle('scrolled',window.scrollY>8)};s();window.addEventListener('scroll',s,{passive:true});}
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce||!('IntersectionObserver' in window))return;
+['.stat-grid','.cards','.flow4','.trio','.duo','.tiers','.team-grid','.compare'].forEach(function(sel){document.querySelectorAll(sel).forEach(function(g){Array.prototype.slice.call(g.children).forEach(function(ch,i){ch.setAttribute('data-rv','');ch.style.transitionDelay=(i*70)+'ms';});});});
+document.querySelectorAll('.section > .wrap > .eyebrow,.section h2,.section .lead,.section p.body,.hero h1,.hero-sub,.hero .cta-row,.note,.stance,.contact-side,form#cf,.panel-lead,.panel-intro,.feat,.faq,.price-note').forEach(function(el){if(!el.hasAttribute('data-rv'))el.setAttribute('data-rv','');});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('rv-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+document.querySelectorAll('[data-rv]').forEach(function(el){io.observe(el);});
+})();</script><script>(function(){var el=document.getElementById('pulseCaption');if(!el)return;var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(r){el.innerHTML='<b>you decide</b>';return;}var s=['pulse sent','checked against your rules','verified','<b>you decide</b>'],i=0;setInterval(function(){i=(i+1)%s.length;el.innerHTML=s[i];},900);})();</script></body></html>
