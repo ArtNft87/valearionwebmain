@@ -1,0 +1,24 @@
+# Valearion
+
+> Valearion is identity verification infrastructure for regulated platforms. Operators receive verified signals (age, identity, screening status) against their own configuration, with a full audit trail. User data stays on the user's device. Valearion stores nothing and makes no compliance decisions.
+
+Operators configure the checks, set the thresholds, and make every determination. Valearion delivers the signal and the log. Risk scoring and AML determinations remain with the operator, which is where regulators expect them. A verification pulse fires only on operator instruction, never autonomously. Valearion provides rails, signals, and tools.
+
+Primary audience is licensed gaming operators (MGA, UKGC, and EU regimes), alongside fintechs and banks, age-gated platforms (OSA, DSA, KOSA), and public sector identity programmes.
+
+Pricing: Valearion is a SaaS platform with enterprise pricing, tailored to each operator. Cost is modelled on verification volume (users per day, month, and year) and monitoring cadence rather than published as a fixed price. Legacy stacks charge 15 to 45 dollars per event.
+
+OwnlyMe is the consumer credential layer. A person verifies once and carries a reusable W3C verifiable credential on their device, approving only the specific claim each platform requests.
+
+## Key pages
+- Home: https://valearion.com/
+- Solutions: https://valearion.com/solutions.html
+- How it works: https://valearion.com/how-it-works.html
+- Pricing: https://valearion.com/pricing.html
+- OwnlyMe: https://valearion.com/ownlyme.html
+- Company: https://valearion.com/company.html
+- Contact: https://valearion.com/contact.html
+
+## What Valearion is and is not
+- Is: identity and age verification infrastructure, privacy preserving, zero retention, with a regulator-ready audit trail.
+- Is not: a compliance provider, a risk scoring service, an AML certifier, or a decision maker. The operator owns every decision and stays accountable to their regulator.
